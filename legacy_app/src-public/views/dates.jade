@@ -1,0 +1,86 @@
+nav#top.navbar.navbar-default.navbar-static-top.navbar-inverse
+      .container
+        .nav.navbar-inverse
+            a.btn.navbar-btn(ui-sref="member") Home
+            a.btn.navbar-btn(ui-sref="settings") Settings
+            a.btn.navbar-btn(ui-sref="admin") Admin
+            a.btn.navbar-btn(ui-sref="mothership") Mothership
+            a.btn.navbar-btn(ui-sref="discussions") Discussions
+
+//- h1.text-center Dates
+//- div.text-center.bright-white
+//-     | Once you submit a report for these dates in the Report tab above, they will be removed from this list.
+//-     | Click the people on this list you already know, and we won't set you up to date them.
+//- hr.bright-white
+.row.text-center
+    .col-sm-4.col-sm-offset-4
+        h3 Dates To Complete
+        h6.bright-white reach out to your date through the listed email address
+        table.table.table-bordered.bright-white
+            tr(ng-repeat="rushee in userMember.pending_rushees") 
+                td {{rushee.firstname}} {{ rushee.lastname }}
+                td {{rushee.email}}
+        p.bright-white.text(ng-show="userMember.pending_rushees.length == 0") You have no current coffee dates.
+
+//- TODO: add a UI element that displays completed coffee dates
+//- hr.bright-white
+//- .row.text-center
+//-     .col-sm-4.col-sm-offset-4
+//-         h3 Completed Dates
+//-         table.table.table-bordered.bright-white
+//-             tr(ng-repeat="rushee in userMember.completed_cds")
+//-                 td {{rushee.firstname}} {{rushee.lastname}}
+//-                 td {{rushee.email}}
+//-         p.bright-white.text-center(ng-show="userMember.completed_cds.length == 0") You have not completed any coffee dates
+//- hr.bright-white
+
+//- .row.text-center
+//-     button.btn(ng-click="testSession()", style="color:black;") Test Session 
+
+.row
+    //- display all rushees in database
+    .col-md-6.col-sm-6
+        h3.text-center(ng-init="getRushees()",style="color:#B60000;") 
+            | List of Potential Dates
+        h5.text-center.bright-white click those who are your friends
+        form(role="search")
+            .form-group
+                input.form-control(type="text", placeholder="Search potential dates...",ng-model="datesQuery")
+        //- input.form-control(type="text", placeholder="search rushees...")
+        table.table.table-hover.rushee-table
+            tr.hover-styles(ng-repeat="rushee in allrushees | filter:datesQuery", ng-hide="memberKnowsRushee(rushee)", ng-click="knowsRusheeModal(rushee)")
+                td {{rushee.firstname}} {{rushee.lastname}}
+                td {{rushee.email}}
+
+    .col-md-6.col-sm-6
+        h3.text-center(ng-init="getRushees()",style="color:#B60000;") 
+            | Friends
+        h5.text-center.bright-white you will not be eligible to date these people
+        br
+        //- input.form-control(type="text", placeholder="search rushees...")
+        table.table.rushee-table
+            tr(ng-repeat="rushee in userMember.friends")
+                td {{rushee.firstname}} {{rushee.lastname}}
+                td {{rushee.email}}
+
+    .col-md-6.col-sm-6
+        h3.text-center(ng-init="getRushees()",style="color:#B60000;") 
+            | Completed Dates
+        h5.text-center.bright-white you have already dated these people
+        br
+        //- input.form-control(type="text", placeholder="search rushees...")
+        table.table.rushee-table
+            tr(ng-repeat="rushee in userMember.completed_cds")
+                td {{rushee.firstname}} {{rushee.lastname}}
+                td {{rushee.email}}
+
+//- //- MODAL: generalized message modal
+//- script(type="text/ng-template", id="messageModal.html")
+//-     div.rushee-delete-modal
+//-         .modal-body
+//-             h4 {{message}}
+//-             ul
+//-                 li.bright-white(ng-repeat="line in lines") {{line}}
+//-         .modal-footer
+//-             button.btn.btn-default(ng-click="cancel()") Cancel
+//-             button.btn.btn-warning(ng-click="execute()") {{executeMessage}}

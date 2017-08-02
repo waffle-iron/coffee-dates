@@ -1,0 +1,61 @@
+@import '../constants/sizes';
+@import '../constants/colors';
+@import '../constants/fonts';
+
+.flex {
+  display: flex;
+  flex: 1;
+}
+
+.flexColumn {
+  @extend .flex;
+  flex-direction: column;
+}
+
+.flexCenter {
+  @extend .flex;
+  justify-content: center;
+  align-items: center;
+  text-center: center;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  padding: calc(2*$pad) $block
+}
+
+.header {
+  font-family: $headerFont;
+  color: $red;
+  letter-spacing: 1px;
+  font-size: 24px;
+  font-weight: 200;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 $pad 0;
+}
+
+.copy {
+  font-size: 12pt;
+  font-family: $headerFont;
+}
+
+.button {
+  @extend .flexCenter;
+  @extend .copy;
+  background-color: $darkRed;
+  max-height: calc($block/3);
+  max-width: calc(1.5*$block);
+  min-height: calc($block/3);
+  min-width: calc(1.5*$block);
+  color: $white;
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 16pt;
+  outline: none;
+  &:hover {
+    background-color: $red;
+    cursor: pointer;
+  }
+}

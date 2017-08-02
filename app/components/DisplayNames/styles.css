@@ -1,0 +1,30 @@
+@import '../../common/styles';
+
+.container {
+  margin-bottom: $pad;
+}
+
+.plus {
+  height: 50px;
+  width: 50px;
+}
+
+.rightImgCont {
+  @extend .flexCenter;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-top: auto;
+  right: 0;
+  bottom: 0;
+}
+
+.friendsList {
+  @extend .copy;
+  list-style: none;
+  margin: 0;
+  font-size: 16pt;
+  padding: $pad;
+  min-height: 180px;
+  flex: 6;
+}

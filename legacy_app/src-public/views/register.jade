@@ -1,0 +1,22 @@
+.row.text-center
+	.offset3.span6
+		h1.page-header Register
+		form.form-horizontal(ng-submit="register(user)")
+			.alert.alert-danger(ng-show="errorMessage") <strong>Error:</strong> {{errorMessage}}
+			.control-group
+				label.control-label(for="inputUsername") Username
+				.controls
+					input(type="text",ng-model="user.username",id="inputUsername")
+			.control-group
+				label.control-label(for="inputPassword") Password
+				.controls
+					input(type="password",ng-model="user.password",id="inputPassword")
+			.control-group
+				label.control-label(for="inputPassword2") Password Again
+				.controls
+					input(type="password",ng-model="user.passwordConfirm",id="inputPassword2")
+
+			.form-actions
+				button.btn.btn-primary Register New User
+
+			

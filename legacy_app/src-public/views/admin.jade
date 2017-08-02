@@ -1,0 +1,91 @@
+nav#top.navbar.navbar-default.navbar-static-top.navbar-inverse
+      .container
+        .nav.navbar-inverse
+            a.btn.navbar-btn(ui-sref="member") Home
+            a.btn.navbar-btn(ui-sref="settings") Settings
+            a.btn.navbar-btn(ui-sref="admin") Admin
+            a.btn.navbar-btn(ui-sref="mothership") Mothership
+            a.btn.navbar-btn(ui-sref="discussions") Discussions
+
+//- TODO: show a list of those rushees who do not currently have a date due to member conditions
+
+.row
+    .col-sm-6.bright-white
+        br
+        h4 There are <a class="infolist-link" ng-click="listInfoModal(freeRushees, 'Rushees Without A Date')">{{freeRushees.length}} rushees</a> without a date.
+        h4 There are <a class="infolist-link" <a ng-click="listInfoModal(undatedRushees, 'Rushees With Zero Reports')">{{undatedRushees.length}} rushees</a> who have not been dated.
+        h4 There are <a class="infolist-link" <a ng-click="listInfoModal(excellentMembers, 'Members Who Have Dated More Than Three Rushees')">{{excellentMembers.length}} members</a> who are excellent members.
+        h4 There are <a class="infolist-link" <a ng-click="listInfoModal(poorMembers, 'Members Who Have Not Dated. Poor!')">{{poorMembers.length}} members</a> who haven't dated anyone.
+        h4 There are <a class="infolist-link" <a ng-click="listInfoModal(stingyMembers, 'Members Whose Capacity Is Zero')">{{stingyMembers.length}} members</a> who are super stingy.
+        br
+    .col-sm-1
+        //- h2 Rushees Without A Date <small>{{freeRushees.length}} Rushees</small> 
+        //- table.table-hover.table.rushee-table
+        //-     tr.hover-styles(ng-repeat="rushee in freeRushees")
+        //-         td(ng-click="moreRusheeModal(rushee)") {{rushee.firstname}} {{rushee.lastname}}
+        //-         //- td(ng-click="moreRusheeModal(rushee)") {{rushee.email}}
+    .col-sm-4.text-center
+        h3 Add Rushee
+            form(role="form", name="newRusheeForm", ng-submit="saveNewRushee()") 
+                .form-group
+                    //- label(for="firstname") First name
+                    input.form-control#firstname(type="text", placeholder="e.g. Jimmy", ng-model="newRushee.firstname", ng-required="true")
+                    input.form-control#lastname(type="text", placeholder="e.g. Wong", ng-model="newRushee.lastname", ng-required="true")
+                    input.form-control#email(type="email", placeholder="e.g. jwong@princeton.edu", ng-model="newRushee.email", ng-required="true")
+                    button.btn.btn-default Add Rushee
+
+//- display all rushees in database
+.row
+    .col-md-6.col-sm-6
+        h2 All Rushees <small>{{mostRecentRushees.length}} Rushees (green = completed)</small>
+        //- input.form-control(type="text", placeholder="search rushees...")
+        form(role="search")
+            .form-group
+                input.form-control(type="text", placeholder="Search rushees...",ng-model="rusheeQuery")
+        table.table.table-hover.rushee-table
+            tr.hover-styles(ng-repeat="rushee in mostRecentRushees | filter:rusheeQuery")
+                //- td
+                //-     small
+                //-         a.plus-icon(ng-click="moreRusheeModal(rushee)")
+                //-             span.glyphicon.glyphicon-info-sign
+                td(ng-click="moreRusheeModal(rushee)") {{rushee.firstname}} {{rushee.lastname}}
+                td(ng-click="moreRusheeModal(rushee)") {{rushee.email}}
+                td(style="color:green;") {{rushee.completed_cds.length}}
+                td.extra-hover.text-center(ng-click="reassignRusheeModal(rushee)")
+                    small
+                        a.hover-icon
+                            span.glyphicon.glyphicon-eject
+                td.extra-hover.text-center(ng-click="deleteRusheeModal(rushee)")
+                    small
+                        a.remove-icon
+                            span.glyphicon.glyphicon-remove
+    .col-md-6.col-sm-6
+        h2(ng-init="getMembers()") Members <small>{{members.length}} Members (orange = pending, green = completed)</small>
+        form(role="search")
+            .form-group
+                input.form-control(type="text", placeholder="Search members...",ng-model="memberQuery")
+        table.table.table-hover.rushee-table
+            tr.hover-styles(ng-repeat="member in members | filter:memberQuery")
+                td(ng-click="moreMemberModal(member)") {{member.firstname}} {{member.lastname}}
+                td(ng-click="moreMemberModal(member)") {{member.email}}
+                div.btn-group
+                    td.extra-hover.text-center(ng-click="changeMemberModal(member)")
+                            small
+                                a.plus-icon
+                                    span.glyphicon.glyphicon-retweet
+                td(style="color:orange;") {{member.pending_rushees.length}}
+                td(style="color:green;") {{member.completed_cds.length}}
+        
+                    //- will eventually add names to user field
+
+//- MODAL: generalized message modal
+//- script(type="text/ng-template", id="messageModal.html")
+//-     div.rushee-delete-modal
+//-         .modal-body
+//-             h4 {{message}}
+//-             ul
+//-                 li.bright-white(ng-repeat="line in lines") {{line}}
+//-         .modal-footer
+//-             button.btn.btn-default(ng-click="cancel()") Cancel
+//-             button.btn.btn-warning(ng-click="execute()") {{executeMessage}}
+

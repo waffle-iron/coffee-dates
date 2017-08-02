@@ -1,0 +1,6 @@
+version: '2'
+services:
+  angular:
+    build: .
+    ports:
+     - "8008:8008"

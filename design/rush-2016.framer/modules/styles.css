@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(https://fonts.googleapis.com/css?family=Exo);
+
+/* darkRed = #A81017 */
+/* red = #D3141C */
+.alldates-container {}
+h5 {
+  color: #000;
+}
+
+.date-container {
+  padding: 5px;
+  font-family: 'Exo', sans-serif;
+}
+
+.date-email {
+  margin-left: 2em;
+  font-size: 14pt;
+  color: #000;
+}
+
+input, textarea {
+  position: absolute;
+  bottom: 0;
+  font-family: 'Exo', sans-serif;
+  font-size: 14pt;
+  width: 99%; /* to account for border layers in framer */
+  height: 99%;
+  margin: 0 2px;
+  padding: 2px 3px;
+}
+input[type="radio"] {
+  display: inline-block;
+}
+label {
+  font-size: 8pt;
+  color: #000;
+}

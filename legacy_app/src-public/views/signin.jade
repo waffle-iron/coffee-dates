@@ -1,0 +1,21 @@
+.row.text-center
+    .offset3.span6
+        //- h1.page-header Sign In
+        br
+        br
+        br
+        form.form-horizontal(ng-submit="signin(user)")
+            .alert.alert-danger(ng-show="errorMessage") <strong>Error:</strong> {{errorMessage}}
+
+            .control-group
+                label.control-label(for="inputUsername") Username
+                .controls
+                    input(type="text",ng-model="user.username",id="inputUsername",autofocus)
+
+            .control-group
+                label.control-label(for="inputPassword") Password
+                .controls
+                    input(type="password",ng-model="user.password",id="inputPassword")
+
+            .form-actions
+                button.btn Sign In          

@@ -1,0 +1,81 @@
+nav#top.navbar.navbar-default.navbar-static-top.navbar-inverse
+      .container
+        .nav.navbar-inverse
+            a.btn.navbar-btn(ui-sref="member") Home
+            a.btn.navbar-btn(ui-sref="settings") Settings
+            a.btn.navbar-btn(ui-sref="admin") Admin
+            a.btn.navbar-btn(ui-sref="mothership") Mothership
+            a.btn.navbar-btn(ui-sref="discussions") Discussions
+            
+.row
+    .col-sm-6.text-center
+        h2 Create Member
+        p.bright-white
+            | Password is 'blood95' by default, until the member changes it in
+            | 'Settings' tab
+        form
+            .bright-white First Name
+                input(type="text", ng-model="newMember.firstname")
+            .bright-white Last Name
+                input(type="text", ng-model="newMember.lastname")
+            .bright-white Email
+                input(type="email", ng-model="newMember.email")
+            button.btn.btn-default(ng-click="createMember()") Create
+
+        h2 Assign Rushee to Member
+        p.bright-white this does not consider the member's capacity
+        form(ng-submit="assignRushee()")
+            .bright-white Rushee's Email
+                input(type="email", ng-model="rusheeEmail")
+            .bright-white Member's Email
+                input(type="email", ng-model="memberEmail")
+            button.btn.btn-default(type="submit") Assign
+
+    .col-sm-6.text-center.bright-white
+        p
+            | Dates will be assigned every time someone submits a report, but if 
+            | you change a member's capacity and then want to manually run the
+            | assignment algorithm, you can click this button. Wait five or six
+            | seconds after you've clicked the button, and a modal should pop
+            | up with information on which dates have been assigned.
+        btn.btn.btn-default(ng-click="matchAll()") Assign Dates to Free Members
+        br
+        br
+        p(style="margin-bottom:0;")
+            | If you select one of these radios, and hit 'Set Capacities to X',
+            | all member's capacities will be set to X (wait a couple of seconds,
+            | and you should see a success message). If you then want to assign
+            | dates, click the button above this. 
+        //- input(type="text", ng-model="capacity")
+        label.radio-inline(ng-repeat="cap in caps",style="margin-bottom:10px;") {{cap}}
+            input(type="radio", name="cap", ng-click="setCap(cap)", value="{{cap}}", required)
+        br
+        btn.btn.btn-default(ng-click="setCapacitiesAndRun(false)") Set Capacities to {{capacity}} 
+        br
+        br
+        p
+            | Once member's have selected the people they know in the list of
+            | rushees, you can begin rush by clicking this button. This will
+            | set all member's capacity to one, and run the assignment algorithm. Wait 
+            | five or six seconds after you've clicked the button, and a modal should pop
+            | up with information on which dates have been assigned.
+        btn.btn.btn-default(ng-click="beginRushModal()") Begin Rush
+        br
+        br
+        p
+            | When rush is over, or for some other reason you want to reset the
+            | entire rush process, click this button. This will wipe all information
+            | pertaining to rushees and members in the database. Nothing will seem to happen,
+            | but you can confirm members have wiped by opening up the Javascript console
+            | (Command-Option-J on a Mac), by checking the info-metrics on the admin page, 
+            | or by looking directly at the database in Parse.
+        btn.btn.btn-default(ng-click="resetRushModal()") Reset Rush
+        //- form(role="form",ng-submit="setCapacitiesAndRun()")
+        //-     .form-inline
+        //-         .form-group
+        //-                 label.radio-inline(ng-repeat="cap in caps") {{cap}}
+        //-                     input(type="radio", name="capacity", ng-model="capacity", value="{{cap}}", required)
+        //-     btn.btn.btn-default(type="submit") Set {{capacity}}
+
+.row
+br

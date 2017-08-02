@@ -1,0 +1,18 @@
+nav#top.navbar.navbar-default.navbar-static-top.navbar-inverse
+      .container
+        .nav.navbar-inverse
+            a.btn.navbar-btn(ui-sref="member") Home
+            a.btn.navbar-btn(ui-sref="settings") Settings
+            a.btn.navbar-btn(ui-sref="admin") Admin
+            a.btn.navbar-btn(ui-sref="mothership") Mothership
+            a.btn.navbar-btn(ui-sref="discussions") Discussions
+
+h2.text-center Change Password
+form.text-center(ng-submit="changePasswordModal()")
+    .form-group
+        label New Password
+        input(type="password", name="new-password", ng-model="newPassword", required)
+    .form-group
+        label Repeat New Password
+        input(type="password", name="repeat-new-password", ng-model="repeatNewPassword", required)
+    button.btn.btn-default Change Password

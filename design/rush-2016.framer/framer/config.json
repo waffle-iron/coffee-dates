@@ -1,0 +1,18 @@
+{
+  "propertyPanelToggleStates" : {
+    "Filters" : false
+  },
+  "deviceType" : "custom",
+  "updateDelay" : 0.3,
+  "foldedCodeRanges" : [
+    "{0, 205}",
+    "{205, 700}",
+    "{905, 415}",
+    "{1320, 570}",
+    "{1891, 4649}",
+    "{6541, 1916}",
+    "{8457, 970}"
+  ],
+  "sharedPrototype" : 0,
+  "deviceOrientation" : 0
+}

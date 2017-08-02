@@ -1,0 +1,20 @@
+nav#top.navbar.navbar-default.navbar-static-top.navbar-inverse
+      .container
+        .nav.navbar-inverse
+            a.btn.navbar-btn(ui-sref="member") Home
+            a.btn.navbar-btn(ui-sref="settings") Settings
+            a.btn.navbar-btn(ui-sref="admin") Admin
+            a.btn.navbar-btn(ui-sref="mothership") Mothership
+            a.btn.navbar-btn(ui-sref="discussions") Discussions
+
+.text-center.col-sm-6.col-sm-offset-3
+    h1 {{userMember.firstname}} {{userMember.lastname}}
+    .panel.bright-white.transparent
+        p 
+            | If you don't see your name above, your internet connection isn't good enough to
+            | use this app. For security reasons, you will be logged out when you close this
+            | window, or refresh the page.
+        hr
+        p 
+            | If you find anything wrong with this app, please send an email to Lachie at 
+            | lachlankermode@live.com, so that he can fix the issue.

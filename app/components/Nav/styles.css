@@ -1,0 +1,29 @@
+@import '../../common/styles';
+
+.container {
+  width: 100vw;
+  top: 0;
+  height: $navHeight;
+  background-color: $darkRed;
+}
+
+.content {
+  padding: $pad $block;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  margin-left: $pad;
+}
+
+.logout {
+  margin-left: auto;
+  font-family: $flowerFont;
+  color: $white;
+  font-size: calc($navHeight/(5/2));
+  &:hover {
+    cursor: pointer;
+    color: $gray;
+  }
+}

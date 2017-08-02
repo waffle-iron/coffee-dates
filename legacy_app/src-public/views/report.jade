@@ -1,0 +1,64 @@
+nav#top.navbar.navbar-default.navbar-static-top.navbar-inverse
+      .container
+        .nav.navbar-inverse
+            a.btn.navbar-btn(ui-sref="member") Home
+            a.btn.navbar-btn(ui-sref="dates") Dates
+            a.btn.navbar-btn(ui-sref="report") Report
+            a.btn.navbar-btn(ui-sref="settings") Settings
+            a.btn.navbar-btn(ui-sref="admin") Admin
+            a.btn.navbar-btn(ui-sref="mothership") Mothership
+            a.btn.navbar-btn(ui-sref="discussions") Discussions
+            
+h1.text-center Report on a Coffee Date
+
+.col-md-8.col-md-offset-2(ng-show="userMember.pending_rushees.length > 0")
+    //- button.btn-default.btn(ng-click="testSubmitReport()") Test
+    form.report-form(role="form", ng-submit="submitReportModal()")
+        //- rushee name
+        .dropdown
+            button.btn.btn-default.dropdown-toggle(type="button", id="myRushees", data-toggle="dropdown") {{dropdownLabel}} 
+                span.caret
+            ul.dropdown-menu
+                li(ng-repeat="date in userMember.pending_rushees")
+                    a(ng-click="updateDropdown(date)") {{date.firstname}} {{date.lastname}}
+        //- date rating
+        label
+        | On a scale of 1-5, how much did you enjoy your coffee date with this person?
+        .form-inline
+            .form-group
+                    label.radio-inline(ng-repeat="rank in ranks") {{rank}}
+                        input(type="radio", name="date", ng-model="report.date", value="{{rank}}", required)
+        //- meeting rating
+        label
+        | On a scale of 1-5, how much would this person contribute towards meeting?
+        .form-inline
+            .form-group
+                    label.radio-inline(ng-repeat="rank in ranks") {{rank}}
+                        input(type="radio", name="meeting", ng-model="report.meeting", value="{{rank}}", required)
+        //- hall rating
+        label
+        | How committed does it seem this person would be to the hall?
+        .form-inline
+            .form-group
+                    label.radio-inline(ng-repeat="rank in ranks") {{rank}}
+                        input(type="radio", name="hall", ng-model="report.hall", value="{{rank}}", required)
+        //- pb rating
+        label
+        | How comfortable would you feel giving your PB to this person?
+        .form-inline
+            .form-group
+                    label.radio-inline(ng-repeat="rank in ranks") {{rank}}
+                        input(type="radio", name="pb", ng-model="report.pb", value="{{rank}}", required)
+        //- thoughts expanded
+        .form-group
+            label Expand your thoughts
+            textarea.input-essay(ng-model="report.expanded", required)
+
+        h5.bright-white
+            | Once you submit a report for a rushee, they will be removed from your list
+            | of current dates. 
+
+        button.btn.btn-default(style="margin-bottom:4em;") Report
+
+.col-md-8.col-md-offset-2(ng-show="userMember.pending_rushees.length == 0")
+    p.bright-white You have no pending coffee dates. Send an email to Sam if you are worried about this.

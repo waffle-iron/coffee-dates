@@ -1,0 +1,28 @@
+doctype html
+html(lang="en", ng-app="angularParseBoilerplate")
+  head
+    title Cult App
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="css/app.css")
+
+  body
+
+    main.container(ui-view)
+    
+    //- MODAL: generalized message modal
+    script(type="text/ng-template", id="messageModal.html")
+        div.rushee-delete-modal
+            .modal-body
+                h4 {{message}}
+                ul
+                    li.bright-white(ng-repeat="line in lines") {{line}}
+            .modal-footer
+                button.btn.btn-default(ng-click="cancel()") Cancel
+                //- TODO: make this cancel message changeable
+                button.btn.btn-warning(ng-click="execute()")  {{executeMessage}}
+    script(src="js/vendor.js")
+    script(src="js/templates.js")
+    script(src="js/app.js")
+    script (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-38757134-3', 'auto');

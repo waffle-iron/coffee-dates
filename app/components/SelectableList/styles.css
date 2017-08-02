@@ -1,0 +1,127 @@
+@import '../../common/styles';
+
+$InnerContainerWidth: 85%;
+.container {
+  @extend .flexCenter;
+  flex-direction: column;
+  min-width: 100%;
+}
+
+.titleContainer {
+  @extend .flex;
+  height: 40px;
+  width: $InnerContainerWidth;
+  flex: none;
+}
+
+.title {
+  @extend .header;
+  flex: 1;
+  height: 100%;
+  /* align-items: center; */
+  text-align: left;
+  margin-top: 8px;
+}
+/* Search Input */
+.searchInput {
+  flex: 2;
+  padding: 10px 10px;
+  height: 52px;
+  position: relative;
+  /* min-width: 40%; */
+}
+
+.searchInput::before {
+  content: "\26b2";
+  display: block;
+  position: absolute;
+  width: 15px;
+  z-index: 3;
+  height: 15px;
+  transform: rotate(-45deg);
+  font-size: 20px;
+  top: 11px;
+  left: -13px;
+  line-height: 32px;
+}
+
+.searchInput > input {
+  @extend .copy;
+  padding: 5px;
+  border: none;
+  border-bottom: solid 2px $gray;
+  transition: border 0.3s;
+  outline: none;
+  margin-bottom: $pad;
+  min-width: 100%;
+}
+
+.searchInput > input:focus {
+  border-bottom: solid 2px $darkRed;
+}
+
+/* Item */
+.itemContainer {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  min-width: $InnerContainerWidth;
+  padding: 0 2px;
+  margin: 10px 0px;
+  overflow: scroll;
+  /* overflow-y: hidden; */
+}
+
+.item {
+  background-color: $lightRed;
+  border: 2px solid $lightRed;
+  width: 100%;
+  min-height: 30px;
+  margin: 6px 0;
+  padding: 0;
+  &:hover {
+    cursor: pointer;
+    background-color: $lightGray;
+  }
+}
+
+.itemActive {
+  @extend .item;
+  background-color: $darkRed;
+  color: white;
+  &:hover {
+    background-color: $red;
+  }
+}
+
+.name {
+  @extend .copy;
+  align-items: center;
+  padding: 3px 0 0 15px;
+}
+
+/* Buttons */
+.buttonCont {
+  @extend .flexCenter;
+  flex: none;
+  position: fixed;
+  bottom: 0;
+  width: 400px;
+  left: 50%;
+  margin-left: -200px;
+}
+
+.saveBtn {
+  @extend .button;
+  margin: 20px;
+}
+
+.closeBtn {
+  @extend .button;
+  background-color: $darkGray;
+  /* color: black; */
+  margin: 20px;
+  &:hover {
+    background-color: $gray;
+  }
+}

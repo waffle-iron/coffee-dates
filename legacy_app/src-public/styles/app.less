@@ -1,0 +1,161 @@
+@import "../../bower_components/bootstrap/less/bootstrap.less";
+
+body {
+  background-image: url('../img/bloodspit.jpg');
+}
+
+.accept {
+	color: lighten(green, 10%);
+	&:hover {
+		color: lighten(green, 50%);
+		border-color: lighten(green, 40%);
+	}
+}
+.remove {
+	color: red;
+	&:hover {
+		color: lighten(red, 40%);
+		border-color: lighten(red, 40%);
+	}
+}
+
+.action-button {
+	font-size: 4em;
+	border: 3px solid transparent;
+	border-radius: 5em;
+	&:hover {
+		border-left: 4px;
+		border-right: 4px;
+		cursor: pointer;
+	}
+}
+
+.subtitle {
+	color: lighten(#777777, 10%);
+	font-weight: 300;
+}
+.rushee-delete-modal {
+	background-color:rgba(0, 0, 0, 1);
+}
+
+.infolist-link {
+	color: red;
+	&:hover {
+		color: darken(red, 10%);
+		cursor: pointer;
+	}
+}
+
+// navbar styles
+.transparent {
+	background-color: rgba(0, 0, 0, 1);
+	border-radius: 1em;
+}
+
+// input styles
+.report-form {
+	text-align: center;
+}
+.input-essay {
+	width: 100%;
+	height: 20em;
+}
+
+.my-date {
+	background-color: #DBDBDB;
+	color: red;
+	font-weight: bold;
+	border: 3px solid black;
+}
+
+.hover-styles {
+	&:hover {
+		cursor: pointer;
+		color: #000;
+	}
+}
+
+.hover-icon {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.extra-hover {
+	&:hover {
+		background-color: orange !important;
+	}
+}
+
+.only-div {
+	// position: fixed;
+	padding-top: 25%;
+	// left: 50%;
+	// margin-top: -50px;
+	// margin-left: -100px;
+}
+.navbar-btn {
+	color: white;
+	&:hover {
+		cursor:pointer;
+		color:#A70000;
+	}
+	&:focus {
+		color:#A70000;
+	}
+
+}
+
+.full-width {
+	width: 100%;
+}
+
+.plus-icon {
+	color: white;
+	padding: 2em 0;
+	&:hover {
+		cursor:pointer;
+		color:red;
+	}
+}
+
+.remove-icon {
+	color: red;
+	&:hover {
+		cursor:pointer;
+		color:lighten(red, 10%)
+	}
+}
+
+.glyphicon.glyphicon-ok-circle {
+	color: white;
+}
+
+.dropdown {
+	margin: 1em 0;
+}
+.dropdown-menu {
+	left: 50%;
+	right: auto;
+	text-align: center;
+	transform: translate(-50%, 0);
+}
+.rushee-table {
+	color: white;
+}
+
+.bright-white {
+	color: white;
+}
+
+form {
+	color: white;
+}
+input, textarea {
+	color: black;
+	margin: 1em;
+}
+
+.navbar-brand, h1, h2, h3, h4 {
+  color: white;
+}

@@ -1,0 +1,21 @@
+@import '../../../common/constants/colors';
+@import '../../../common/constants/fonts';
+
+.label {
+  color: $red;
+  font-family: $flowerFont;
+}
+
+.input {
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  outline: none;
+  padding: 6px;
+  margin: 5px 1px 1em 0;
+  border-bottom: 2px solid $gray;
+}
+
+.input:focus {
+  margin: 5px 1px 1em 0;
+  border-bottom: 2px solid $red;
+}

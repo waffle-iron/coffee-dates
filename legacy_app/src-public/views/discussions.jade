@@ -1,0 +1,26 @@
+nav#top.navbar.navbar-default.navbar-static-top.navbar-inverse
+      .container
+        .nav.navbar-inverse
+            a.btn.navbar-btn(ui-sref="member") Home
+            a.btn.navbar-btn(ui-sref="settings") Settings
+            a.btn.navbar-btn(ui-sref="admin") Admin
+            a.btn.navbar-btn(ui-sref="mothership") Mothership
+            a.btn.navbar-btn(ui-sref="discussions") Discussions
+
+.col-sm-8.col-sm-offset-2
+    h2 Welcome to Discussions
+    h4.text-center.subtitle 
+        | there are {{rushees.length}} rushees to discuss <br>
+        | click one to get started
+    form(role="search")
+            .form-group
+                input.form-control(type="text", placeholder="Search for a rushee...",ng-model="reportQuery")
+
+    table.table.table-hover.rushee-table
+        tr.hover-styles.text-center(ng-repeat="rushee in rushees | filter:reportQuery")
+            td(ng-click="discussRushee(rushee)") {{ rushee.firstname }} {{ rushee.lastname }}
+            //- td(ng-click="moreReportModal(report)") {{summarize(report)}}
+            //- td(ng-click="moreReportModal(report)") {{report.expanded}}
+        
+
+

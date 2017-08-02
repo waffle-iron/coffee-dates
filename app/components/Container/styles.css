@@ -1,0 +1,9 @@
+@import '../../common/styles';
+
+.body {
+  @extend .flex;
+  width: 100%;
+  background-color: $lightGray;
+  padding: $pad;
+  border: 1px solid $gray;
+}

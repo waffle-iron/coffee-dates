@@ -1,0 +1,98 @@
+@import '../../common/styles';
+
+.container {
+  @extend .flex;
+  flex-direction: column;
+}
+
+.question {
+  @extend .copy;
+  color: $darkRed;
+}
+
+.buttonCont {
+  @extend .flexCenter;
+  flex-direction: column;
+  flex: none;
+  margin-top: calc(2*$pad);
+}
+
+.grayButton {
+  @extend .button;
+  margin: 10px;
+  background-color: $darkGray;
+  &:hover {
+    background-color: $gray;
+  }
+}
+
+.longAnswer {
+  @extend .copy;
+  padding: $pad;
+  margin-top: calc(2*$pad);
+  border: 2px solid $darkRed;
+  resize: none;
+  min-height: 60vh;
+  outline-color: $red;
+}
+
+.inputCont {
+  @extend .flex;
+  flex-direction: row;
+  max-width: 25vw;
+  margin: 0.2em 0 1em 0;
+}
+
+.input {
+  color: red;
+  background: black;
+  padding: 1em;
+}
+
+/* input radio */
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + label {
+  @extend .copy;
+}
+input[type="radio"] + label span {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+input[type="radio"] + label span {
+  background-color: $gray;
+}
+
+input[type="radio"]:checked + label span{
+  background-color: $darkRed;
+}
+
+input[type="radio"] + label span,
+input[type="radio"]:checked + label span {
+  -webkit-transition:background-color 0.4s linear;
+  -o-transition:background-color 0.4s linear;
+  -moz-transition:background-color 0.4s linear;
+  transition:background-color 0.4s linear;
+}
+
+/* input text */
+input[type="text"] {
+  @extend .copy;
+  padding: 5px;
+  border: none;
+  border-bottom: solid 2px $gray;
+  transition: border 0.3s;
+  outline: none;
+  margin-bottom: $pad;
+}
+input[type="text"]:focus,
+input[type="text"].focus {
+  border-bottom: solid 2px $darkRed;
+}

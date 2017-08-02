@@ -1,0 +1,38 @@
+@import '../../common/styles';
+
+.overlay {
+  @extend .flexCenter;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $hazyGray;
+  width: 100vw;
+  height: 100vh;
+}
+
+.borderStyles {
+  border: 1px solid $darkRed;
+  border-radius: 2px;
+}
+
+.backdrop {
+  @extend .borderStyles;
+  border: 0px solid white;
+  display: flex;
+  background-color: $white;
+  outline: none;
+  margin-top: -50px;
+  min-height: 500px;
+  min-width: 400px;
+  height: 800px;
+  width: 500px;
+  max-height: 75vh;
+  max-width: 75vw;
+}
+
+.container {
+  @extend .flex;
+  @extend .borderStyles;
+  background-color: $white;
+  padding: 15px;
+}

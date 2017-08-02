@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "angular-parse-boilerplate"
+        }, 
+        "angular-parse-boilerplate": {
+            "applicationId": "8683A294D744F6A55879C13E8374A",
+            "masterKey": "4A62D8929E5C2EAFC5AFFEC34B71B"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.5.0"
+    }
+}

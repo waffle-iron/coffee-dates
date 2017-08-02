@@ -1,0 +1,65 @@
+@import '../../common/styles';
+
+.flexHalf {
+  @extend .flexColumn;
+  min-width: 50%;
+  padding: $pad;
+}
+
+.flexFull {
+  @extend .flexColumn;
+  min-width: 50%;
+  padding: $pad;
+}
+
+.capCont {
+  height: 90px;
+  margin-bottom: $pad;
+}
+
+.capacityCount {
+  @extend .flexCenter;
+  @extend .header;
+  margin-bottom: 0;
+  flex: 4;
+  font-size: 60px;
+  font-weight: bold;
+  color: $darkGray;
+}
+
+.minus {
+  height: 120px;
+  width: 120px;
+  margin: -20px;
+}
+
+.plus {
+  height: 50px;
+  width: 50px;
+}
+
+/* Buttons */
+.buttonCont {
+  @extend .flexCenter;
+  flex: none;
+  position: fixed;
+  bottom: 0;
+  width: 400px;
+  left: 50%;
+  margin-left: -200px;
+}
+
+.saveBtn {
+  @extend .button;
+  margin: 20px;
+}
+
+.closeBtn {
+  @extend .button;
+  background-color: $darkGray;
+  /* color: black; */
+  margin: 20px;
+  &:hover {
+    background-color: $gray;
+  }
+}

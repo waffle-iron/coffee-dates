@@ -1,0 +1,8 @@
+@import '../../common/styles';
+.image {
+  height: calc($navHeight - calc(2*$pad));
+  width: calc($navHeight - calc(2*$pad));
+  &:hover {
+    cursor: pointer;
+  }
+}

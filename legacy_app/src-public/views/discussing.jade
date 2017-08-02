@@ -1,0 +1,30 @@
+nav#top.navbar.navbar-default.navbar-static-top.navbar-inverse
+      .container
+        .nav.navbar-inverse
+            a.btn.navbar-btn(ui-sref="member") Home
+            a.btn.navbar-btn(ui-sref="settings") Settings
+            a.btn.navbar-btn(ui-sref="admin") Admin
+            a.btn.navbar-btn(ui-sref="mothership") Mothership
+            a.btn.navbar-btn(ui-sref="discussions") Discussions
+.col-sm-12.bright-white.text-center
+    //- .col-xs-6
+    //-     .col-xs-4.col-xs-offset-4.action-button.remove(ng-click="hose(rushee)")
+    //-         span.glyphicon.glyphicon-remove
+    //- .col-xs-6
+    //-     .col-xs-4.col-xs-offset-4.action-button.accept(ng-click="bid(rushee)")
+    //-         span.glyphicon.glyphicon-ok
+
+.col-sm-12
+    h2.text-center {{ rushee.firstname }} {{ rushee.lastname }} <br> <small>{{ rushee.email}}</small>
+
+.col-sm-12
+    .text-center
+        h3 Overall Average: {{ overall }}
+
+.col-sm-8.col-sm-offset-2
+    table.table.rushee-table
+        tr.text-center(ng-repeat="report in reports")
+            td(ng-click="moreReportModal(report)") {{ report.fields.longAns }}
+
+
+    
