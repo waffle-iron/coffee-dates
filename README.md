@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/plasticanthony/coffee-dates.png?label=ready&title=Ready)](https://waffle.io/plasticanthony/coffee-dates?utm_source=badge)
 # Plastic Anthony
 <small style="font-size:12pt;">A web platform for coordinating coffee dates.</small>
 
